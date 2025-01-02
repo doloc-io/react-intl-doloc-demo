@@ -2,12 +2,17 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import {FormattedMessage, IntlProvider} from "react-intl";
+import messagesFr from "./lang/fr.json";
+import messagesEn from "./lang/en.json";
+
+const messages = navigator.language === 'fr' ? messagesFr : messagesEn;
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <IntlProvider messages={messages} locale={navigator.language} defaultLocale="en">
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -24,11 +29,15 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+          <p>
+              Translated message:
+              <FormattedMessage id={'simpleMessage'}/>
+          </p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </IntlProvider>
   )
 }
 
