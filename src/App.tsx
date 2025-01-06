@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -9,36 +8,39 @@ import messagesEn from "./lang/en.json";
 const messages = navigator.language === 'fr' ? messagesFr : messagesEn;
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <IntlProvider messages={messages} locale={navigator.language} defaultLocale="en">
+            <h1>doloc showcase for react-intl / Format.JS</h1>
+            <table>
+                <thead>
+                <tr>
+                    <td>Key</td>
+                    <td>Text</td>
+                    <td>Notes</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>simpleMessage</td>
+                    <td><FormattedMessage id={'simpleMessage'}/></td>
+                    <td>Message referenced by id</td>
+                </tr>
+                </tbody>
+            </table>
 
-  return (
-    <IntlProvider messages={messages} locale={navigator.language} defaultLocale="en">
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-          <p>
-              Translated message:
-              <FormattedMessage id={'simpleMessage'}/>
-          </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </IntlProvider>
-  )
+            <hr/>
+
+            <div>
+                <a href="https://vite.dev" target="_blank">
+                    <img src={viteLogo} className="logo" alt="Vite logo"/>
+                </a>
+                <a href="https://react.dev" target="_blank">
+                    <img src={reactLogo} className="logo react" alt="React logo"/>
+                </a>
+            </div>
+            <h1>Vite + React</h1>
+        </IntlProvider>
+    )
 }
 
 export default App

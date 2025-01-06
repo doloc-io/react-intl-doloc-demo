@@ -5,6 +5,25 @@
   text-align: center;
 }
 
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid #333;
+  thead {
+    background-color: #333;
+    color: white;
+  }
+  td {
+    padding: 1rem;
+  }
+}
+
+hr {
+  margin: 4rem 0;
+  border: none;
+  border-top: 1px solid #333;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
