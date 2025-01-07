@@ -2,8 +2,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import {FormattedMessage, IntlProvider} from "react-intl";
-import messagesFr from "./lang/fr.json";
-import messagesEn from "./lang/en.json";
+import messagesFr from "./compiled-lang/fr.json";
+import messagesEn from "./compiled-lang/en.json";
 
 const messages = navigator.language === 'fr' ? messagesFr : messagesEn;
 
@@ -22,8 +22,20 @@ function App() {
                 <tbody>
                 <tr>
                     <td>simpleMessage</td>
-                    <td><FormattedMessage id={'simpleMessage'}/></td>
+                    <td>
+                        <FormattedMessage id={'simpleMessage'} defaultMessage="Simple message"/>
+                    </td>
                     <td>Message referenced by id</td>
+                </tr>
+                <tr>
+                    <td>messageExtractedFromTemplate</td>
+                    <td>
+                        <FormattedMessage
+                            id={'messageExtractedFromTemplate'}
+                            defaultMessage="This message was initially defined in App.tsx"
+                            description="This is some test message"/>
+                    </td>
+                    <td>Extracted via `formatjs extract`</td>
                 </tr>
                 </tbody>
             </table>

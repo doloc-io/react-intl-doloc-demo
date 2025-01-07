@@ -1,0 +1,14 @@
+{
+  "messageExtractedFromTemplate": [
+    {
+      "type": 0,
+      "value": "This message was initially defined in App.tsx"
+    }
+  ],
+  "simpleMessage": [
+    {
+      "type": 0,
+      "value": "Simple message"
+    }
+  ]
+}

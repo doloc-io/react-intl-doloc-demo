@@ -1,3 +1,9 @@
 {
-  "simpleMessage": "Message simple"
-}
+    "messageExtractedFromTemplate": {
+      "defaultMessage": "Ce message a été initialement défini dans App.tsx",
+      "description": "This is some test message"
+    },
+    "simpleMessage": {
+      "defaultMessage": "Message simple"
+    }
+  }
