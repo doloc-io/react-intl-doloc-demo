@@ -5,5 +5,13 @@
     },
     "simpleMessage": {
       "defaultMessage": "Message simple"
+    },
+    "messageWithFormattedParameter": {
+        "defaultMessage": "Aujourd'hui : {date, date}",
+        "description": "a message with formatted parameter"
+    },
+    "messageWithParameters": {
+        "defaultMessage": "Bonjour {name} !",
+        "description": "a message with personalization"
     }
   }

@@ -5,6 +5,31 @@
       "value": "Ce message a été initialement défini dans App.tsx"
     }
   ],
+  "messageWithFormattedParameter": [
+    {
+      "type": 0,
+      "value": "Aujourd'hui : "
+    },
+    {
+      "style": null,
+      "type": 3,
+      "value": "date"
+    }
+  ],
+  "messageWithParameters": [
+    {
+      "type": 0,
+      "value": "Bonjour "
+    },
+    {
+      "type": 1,
+      "value": "name"
+    },
+    {
+      "type": 0,
+      "value": " !"
+    }
+  ],
   "simpleMessage": [
     {
       "type": 0,

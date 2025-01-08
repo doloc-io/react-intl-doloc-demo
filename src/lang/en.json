@@ -3,6 +3,14 @@
     "defaultMessage": "This message was initially defined in App.tsx",
     "description": "This is some test message"
   },
+  "messageWithFormattedParameter": {
+    "defaultMessage": "Today: {date, date}",
+    "description": "a message with formatted parameter"
+  },
+  "messageWithParameters": {
+    "defaultMessage": "Hello {name}!",
+    "description": "a message with personalization"
+  },
   "simpleMessage": {
     "defaultMessage": "Simple message"
   }

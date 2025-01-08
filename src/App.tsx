@@ -23,7 +23,7 @@ function App() {
                 <tr>
                     <td>simpleMessage</td>
                     <td>
-                        <FormattedMessage id={'simpleMessage'} defaultMessage="Simple message"/>
+                        <FormattedMessage id="simpleMessage" defaultMessage="Simple message"/>
                     </td>
                     <td>Message referenced by id</td>
                 </tr>
@@ -31,12 +31,47 @@ function App() {
                     <td>messageExtractedFromTemplate</td>
                     <td>
                         <FormattedMessage
-                            id={'messageExtractedFromTemplate'}
+                            id="messageExtractedFromTemplate"
                             defaultMessage="This message was initially defined in App.tsx"
                             description="This is some test message"/>
                     </td>
                     <td>Extracted via `formatjs extract`</td>
                 </tr>
+                <tr>
+                    <td>messageWithParameters</td>
+                    <td>
+                        <FormattedMessage
+                            id="messageWithParameters"
+                            defaultMessage="Hello {name}!"
+                            description="a message with personalization"
+                            values={{name: 'you'}} />
+                    </td>
+                    <td>Extracted via `formatjs extract`</td>
+                </tr>
+                <tr>
+                    <td>messageWithFormattedParameter</td>
+                    <td>
+                        <FormattedMessage
+                            id="messageWithFormattedParameter"
+                            defaultMessage="Today: {date, date}"
+                            description="a message with formatted parameter"
+                            values={{date: Date.now()}} />
+                    </td>
+                    <td>Extracted via `formatjs extract`</td>
+                </tr>
+                {/* useIntl()/intl can only be used in child-/sub-components of the component declaring IntlProvider
+                <tr>
+                    <td>messageImperative</td>
+                    <td>
+                        {useIntl().formatMessage({
+                            id: 'messageImperative',
+                            defaultMessage: 'Message via intl.formatMessage(..)',
+                            description: 'this message is declared via imperative api',
+                        }, {}, {ignoreTag: true})}
+                    </td>
+                    <td>Extracted via `formatjs extract`</td>
+                </tr>
+                */}
                 </tbody>
             </table>
 
