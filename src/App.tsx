@@ -71,6 +71,16 @@ function App() {
                     </td>
                     <td>Extracted via `formatjs extract`</td>
                 </tr>
+                <tr>
+                    <td>newMessageExtractedOnCI</td>
+                    <td>
+                        <FormattedMessage
+                            id="newMessageExtractedOnCI"
+                            defaultMessage="Hello from CI/CD"
+                            description="this message is expected to be extracted and translated in CI pipeline" />
+                    </td>
+                    <td>Extracted via CI / Github Action</td>
+                </tr>
                 {/* useIntl()/intl can only be used in child-/sub-components of the component declaring IntlProvider
                 <tr>
                     <td>messageImperative</td>
