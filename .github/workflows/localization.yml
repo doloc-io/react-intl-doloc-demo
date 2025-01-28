@@ -1,5 +1,3 @@
-name: Localization
-
 on:
   push:
     branches:
@@ -42,7 +40,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git diff --ignore-cr-at-eol --quiet || (
-            git add translations/messages-translated.xlf
+            git add src
             git commit -m "Update translations via doloc"
             git push
           )
