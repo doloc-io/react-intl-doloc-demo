@@ -41,7 +41,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet || (
+          git diff --ignore-cr-at-eol --quiet || (
             git add translations/messages-translated.xlf
             git commit -m "Update translations via doloc"
             git push
