@@ -11,6 +11,10 @@
     "defaultMessage": "Hello {name}!",
     "description": "a message with personalization"
   },
+  "newMessageExtractedOnCI": {
+    "defaultMessage": "Hello from CI/CD",
+    "description": "this message is expected to be extracted and translated in CI pipeline"
+  },
   "simpleMessage": {
     "defaultMessage": "Simple message"
   }

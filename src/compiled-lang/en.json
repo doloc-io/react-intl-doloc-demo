@@ -30,6 +30,12 @@
       "value": "!"
     }
   ],
+  "newMessageExtractedOnCI": [
+    {
+      "type": 0,
+      "value": "Hello from CI/CD"
+    }
+  ],
   "simpleMessage": [
     {
       "type": 0,

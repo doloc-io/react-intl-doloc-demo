@@ -13,5 +13,9 @@
     "messageWithParameters": {
         "defaultMessage": "Bonjour {name} !",
         "description": "a message with personalization"
+    },
+    "newMessageExtractedOnCI": {
+        "defaultMessage": "Bonjour de CI/CD",
+        "description": "this message is expected to be extracted and translated in CI pipeline"
     }
   }
