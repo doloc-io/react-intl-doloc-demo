@@ -4,13 +4,25 @@ import './App.css'
 import {FormattedMessage, IntlProvider} from "react-intl";
 import messagesFr from "./compiled-lang/fr.json";
 import messagesEn from "./compiled-lang/en.json";
+import {useState} from "react";
 
-const messages = navigator.language === 'fr' ? messagesFr : messagesEn;
+const messages = {
+    fr: messagesFr,
+    en: messagesEn,
+};
 
 function App() {
+    const [locale, setLocale] = useState(navigator.language.startsWith('fr') ? 'fr' as const : 'en' as const);
     return (
-        <IntlProvider messages={messages} locale={navigator.language} defaultLocale="en">
+        <IntlProvider messages={messages[locale]} locale={locale} defaultLocale="en">
             <h1>doloc showcase for react-intl / Format.JS</h1>
+            <div className="select-locale">
+                <label htmlFor="locale-select">Select language: </label>
+                <select id="locale-select" value={locale} onChange={e =>setLocale(e.target.value as 'en' | 'fr')}>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
             <table>
                 <thead>
                 <tr>

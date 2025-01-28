@@ -66,3 +66,13 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.select-locale {
+  padding: 2rem;
+}
+
+.select-locale select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1em;
+}
