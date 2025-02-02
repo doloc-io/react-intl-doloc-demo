@@ -11,9 +11,11 @@
 
     "extract-en": "formatjs extract \"src/**/*.ts*\" --ignore=\"**/*.d.ts\" --out-file src/lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
     "doloc-fr": "curl https://api.doloc.io -H \"Authorization: Bearer $API_TOKEN\" -F source=\"@src/lang/en.json\" -F target=\"@src/lang/fr.json\" -o src/lang/fr.json",
+    "doloc-fr-win": "curl https://api.doloc.io -H \"Authorization: Bearer %API_TOKEN%\" -F source=\"@src/lang/en.json\" -F target=\"@src/lang/fr.json\" -o src/lang/fr.json",
     "format-js-compile-en": "formatjs compile src/lang/en.json --ast --out-file src/compiled-lang/en.json",
     "format-js-compile-fr": "formatjs compile src/lang/fr.json --ast --out-file src/compiled-lang/fr.json",
-    "update-i18n": "npm run extract-en && npm run doloc-fr && npm run format-js-compile-en && npm run format-js-compile-fr"
+    "update-i18n": "npm run extract-en && npm run doloc-fr && npm run format-js-compile-en && npm run format-js-compile-fr",
+    "update-i18n-win": "npm run extract-en && npm run doloc-fr-win && npm run format-js-compile-en && npm run format-js-compile-fr"
   },
   "dependencies": {
     "react": "^18.3.1",

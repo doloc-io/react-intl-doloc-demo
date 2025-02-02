@@ -19,6 +19,7 @@ You can get a free API token by signing up at [doloc.io](https://doloc.io/accoun
 ```bash
 export API_TOKEN=YOUR_API_TOKEN
 ```
+(On Windows, make sure to adapt depending on your shell.)
 
 ## Running the demo
 
@@ -56,6 +57,13 @@ Run the following command to extract the new message:
 ```bash
 export API_TOKEN=YOUR_API_TOKEN
 npm run update-i18n
+```
+
+Alternatively on Windows:
+
+```cmd
+set API_TOKEN = YOUR_API_TOKEN
+npm run update-i18n-win
 ```
 
 Observe that the new message is added to the `src/lang/en.json` file and
