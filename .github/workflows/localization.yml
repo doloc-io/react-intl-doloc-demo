@@ -15,7 +15,7 @@ jobs:
     steps:
       # Step 1: Check out the repository
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       # Step 2: Extract texts (if needed, customize this for your format/tool) + update translations with doloc:
       - name: Extract texts
