@@ -13,9 +13,9 @@ updates:
       timezone: "UTC"
     open-pull-requests-limit: 10
     reviewers:
-      - "doloc-io"
+      - "daniel-sc"
     assignees:
-      - "doloc-io"
+      - "daniel-sc"
     commit-message:
       prefix: "chore"
       prefix-development: "chore"
@@ -31,9 +31,9 @@ updates:
       timezone: "UTC"
     open-pull-requests-limit: 5
     reviewers:
-      - "doloc-io"
+      - "daniel-sc"
     assignees:
-      - "doloc-io"
+      - "daniel-sc"
     commit-message:
       prefix: "ci"
       include: "scope"
