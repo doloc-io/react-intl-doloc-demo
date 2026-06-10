@@ -17,33 +17,32 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
-      # Step 2: Extract texts (if needed, customize this for your format/tool) + update translations with doloc:
+      # Step 2: Install dependencies and extract texts
+      - name: Install dependencies
+        run: npm ci
+
       - name: Extract texts
-        env:
-          API_TOKEN: ${{ secrets.DOLOC_API_TOKEN }}
-        run: |
-          npm ci
-          npm run update-i18n
+        run: npm run extract-en
 
       # Step 3: Run doloc for translations
-      # NOT NEEDED HERE, AS IT IS INTEGRATED IN THE PREVIOUS STEP!
-      #- name: Translate with doloc
-      #  env:
-      #    API_TOKEN: ${{ secrets.DOLOC_API_TOKEN }}
-      #  run: |
-      #    curl https://api.doloc.io \
-      #    -H "Authorization: Bearer $API_TOKEN" \
-      #    -F "@src/lang/en.json" \
-      #    -F "@src/lang/de.json" \
-      #    -o src/lang/en.json
+      - name: Translate with doloc
+        id: doloc
+        uses: doloc-io/doloc-action@v1
+        with:
+          token: ${{ secrets.DOLOC_API_TOKEN }}
+          source: src/lang/en.json
+          targets: |
+            src/lang/fr.json
+
+      - name: Compile FormatJS messages
+        run: |
+          npm run format-js-compile-en
+          npm run format-js-compile-fr
 
       # Step 4: Check for changes and commit if needed
-      - name: Commit and push changes if any
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --ignore-cr-at-eol --quiet || (
-            git add src
-            git commit -m "Update translations via doloc"
-            git push
-          )
+      - name: Commit translation updates
+        if: steps.doloc.outputs.changed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Update translations via doloc
+          file_pattern: src/lang/en.json src/lang/fr.json src/compiled-lang/en.json src/compiled-lang/fr.json

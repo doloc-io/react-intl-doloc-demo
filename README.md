@@ -46,13 +46,14 @@ Add a new text to `src/App.tsx` - e.g.
 
 After adding the new message, you need to extract the new message and translate it.
 
-To extract and translate the new text, there are two alternative ways to do it:
-- Local workflow
-- Using the CI workflow
+To extract and translate the new text, this demo shows two alternative paths:
+
+- Local workflow: the plain npm/FormatJS/curl scripts for local development.
+- CI workflow: the [`doloc-io/doloc-action@v1`](https://github.com/marketplace/actions/doloc-i18n-translation) GitHub Action for automation.
 
 ### Local workflow
 
-Run the following command to extract the new message:
+Run the local npm script to extract, translate, and compile the new message:
 
 ```bash
 export API_TOKEN=YOUR_API_TOKEN
@@ -74,7 +75,7 @@ Additionally, the compiled messages are updated in `src/compiled-lang/en.json` a
 ### CI workflow
 
 If you are using the CI workflow, you can simply push your changes to the repository.
-Check out the workflow definition in `.github/workflows/localization.yml` to see how the translations are updated.
+Check out the workflow definition in `.github/workflows/localization.yml` to see how [`doloc-io/doloc-action@v1`](https://github.com/marketplace/actions/doloc-i18n-translation) updates the translations after FormatJS extraction.
 
 When your change is merged into the main branch, the translations will be updated automatically and a new commit will be created with the updated translations.
 
